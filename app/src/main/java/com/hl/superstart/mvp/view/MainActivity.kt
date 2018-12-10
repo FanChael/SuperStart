@@ -1,21 +1,26 @@
 package com.hl.superstart.mvp.view
 
+import android.content.res.Configuration
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.ActionBar
+import android.view.Window
+import android.view.WindowManager
 import com.hl.superstart.R
 import com.hl.superstart.mvp.view.Fragment.HomeFragment
 import com.hl.superstart.mvp.view.Fragment.OnFragmentInteractionListener
 
 class MainActivity : AppCompatActivity(), OnFragmentInteractionListener {
-    var homePage: HomeFragment ?=null;
+    private var homePage: HomeFragment ?=null;
+    private var portrait:Boolean? = false;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // Example of a call to a native method
-        //sample_text.text = stringFromJNI()
+        //sample_text.cssp_text = stringFromJNI()
         initView();
     }
 
@@ -33,6 +38,42 @@ class MainActivity : AppCompatActivity(), OnFragmentInteractionListener {
                 transaction.show(homePage!!);
         }
         transaction.commit()
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig);
+        portrait = (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT);
+        tryFullScreen(!portrait!!);
+    }
+
+    /**
+     * 控制全屏的方式
+     */
+    private fun tryFullScreen(fullScreen:Boolean) {
+        var supportActionBar: ActionBar? = getSupportActionBar()
+        ///< 有Bar就隐藏bar
+        if (supportActionBar != null) {
+            if (fullScreen) {
+                supportActionBar.hide();
+            } else {
+                supportActionBar.show();
+            }
+        }
+        setFullScreen(fullScreen);
+    }
+
+    private fun setFullScreen(fullScreen:Boolean) {
+        var attrs: WindowManager.LayoutParams  = getWindow().getAttributes();
+        if (fullScreen) {
+            attrs.flags = attrs.flags.or(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            getWindow().setAttributes(attrs);
+        } else {
+            ///< 取消全屏的方式a
+            //attrs.flags = attrs.flags.and(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN)
+            //getWindow().setAttributes(attrs);
+            ///< 取消全屏的方式b
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
     }
 
     override fun onFragmentInteraction(uri: Uri) {

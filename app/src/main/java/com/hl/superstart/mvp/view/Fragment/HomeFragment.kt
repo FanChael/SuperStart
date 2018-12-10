@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.hl.superstart.R
+import com.hl.superstart.mvp.view.custom.CSurfaceView
 import kotlinx.android.synthetic.main.fragment_home.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -25,7 +26,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  *
  */
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -47,7 +48,22 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //fh_startShowSv
+        fh_textIv.setOnClickListener(this)
+        fh_modelIv.setOnClickListener(this)
+    }
+
+    /**
+     * 碎片内部点击事件
+     */
+    override fun onClick(v: View?) {
+        when (v!!.id){
+            R.id.fh_textIv -> {
+                fh_startShowSv.setMessage("娃哈哈个皮球呀！")
+            }
+            R.id.fh_modelIv -> {
+                fh_startShowSv.setMode(CSurfaceView.DISPLAY_TYPE.LOOP)
+            }
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
