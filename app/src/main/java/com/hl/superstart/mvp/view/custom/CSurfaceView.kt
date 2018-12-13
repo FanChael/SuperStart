@@ -48,7 +48,7 @@ class CSurfaceView(context: Context, attributeSet: AttributeSet?, defaultStyle: 
     private var bDrawing = false
     private var mPaint: Paint? = null
     private var mTPaint: Paint? = null
-    private var message: String? = "黄磊(me)，我爱你"
+    private var message: String? = "吴怡萱(you)，我爱你"
     private var rect = Rect()
     private var textSize: Float? = 100.0f
     private var textSizeStep: Float? = 6f
