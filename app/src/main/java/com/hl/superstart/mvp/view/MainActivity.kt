@@ -10,6 +10,7 @@ import android.view.WindowManager
 import com.hl.superstart.R
 import com.hl.superstart.mvp.view.Fragment.HomeFragment
 import com.hl.superstart.mvp.view.Fragment.OnFragmentInteractionListener
+import com.hl.superstart.tools.LongLightUtils
 
 class MainActivity : AppCompatActivity(), OnFragmentInteractionListener {
     private var homePage: HomeFragment ?=null;
@@ -28,6 +29,9 @@ class MainActivity : AppCompatActivity(), OnFragmentInteractionListener {
      * 界面初始化
      */
     private fun initView() {
+        ///< 屏幕常量
+        LongLightUtils.keepScreenLongLight(this);
+
         if (null == homePage)
             homePage = HomeFragment.newInstance("", "");
         val transaction = supportFragmentManager.beginTransaction();
