@@ -40,6 +40,9 @@ class MainActivity : AppCompatActivity(), OnFragmentInteractionListener {
         transaction.commit()
     }
 
+    /**
+     * 横竖屏切换
+     */
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig);
         portrait = (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT);
@@ -47,9 +50,9 @@ class MainActivity : AppCompatActivity(), OnFragmentInteractionListener {
     }
 
     /**
-     * 控制全屏的方式
+     * 全屏方式-隐藏标题栏
      */
-    private fun tryFullScreen(fullScreen:Boolean) {
+    fun tryFullScreen(fullScreen:Boolean) {
         var supportActionBar: ActionBar? = getSupportActionBar()
         ///< 有Bar就隐藏bar
         if (supportActionBar != null) {

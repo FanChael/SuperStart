@@ -1,14 +1,17 @@
 package com.hl.superstart.mvp.view.Fragment
 
 import android.content.Context
+import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import com.hl.superstart.R
+import com.hl.superstart.mvp.view.MainActivity
 import com.hl.superstart.mvp.view.custom.CSurfaceView
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -50,6 +53,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         fh_textIv.setOnClickListener(this)
         fh_modelIv.setOnClickListener(this)
+        fh_oretationIv.setOnClickListener(this)
+        fh_btmMessageOkBtn.setOnClickListener(this)
     }
 
     /**
@@ -57,11 +62,45 @@ class HomeFragment : Fragment(), View.OnClickListener {
      */
     override fun onClick(v: View?) {
         when (v!!.id){
+            ///< 显示/隐藏输入框
             R.id.fh_textIv -> {
-                fh_startShowSv.setMessage("娃哈哈个皮球呀！")
+                if (fh_bottomMessageEditor.visibility == View.INVISIBLE){
+                    fh_bottomMessageEditor.visibility = View.VISIBLE
+                }else{
+                    fh_bottomMessageEditor.visibility = View.INVISIBLE
+                }
             }
+            ///< 设置显示文本
+            R.id.fh_btmMessageOkBtn -> {
+                if (fh_btmMessageEt.text.toString().trim().equals("")){
+                    Toast.makeText(context, "请输入显示文本", Toast.LENGTH_SHORT).show()
+                    return
+                }
+                fh_startShowSv.setMessage(fh_btmMessageEt.text.toString())
+                fh_bottomMessageEditor.visibility = View.INVISIBLE
+            }
+            ///< 滚动模式选择
             R.id.fh_modelIv -> {
-                fh_startShowSv.setMode(CSurfaceView.DISPLAY_TYPE.LOOP)
+                if (fh_startShowSv.getMode() == CSurfaceView.DISPLAY_TYPE.LOOP){
+                    fh_modelIv.setImageResource(R.drawable.bounce)
+                    fh_startShowSv.setMode(CSurfaceView.DISPLAY_TYPE.BOUNCE)
+                }else{
+                    fh_modelIv.setImageResource(R.drawable.loop)
+                    fh_startShowSv.setMode(CSurfaceView.DISPLAY_TYPE.LOOP)
+                }
+            }
+            ///< 屏幕旋转
+            R.id.fh_oretationIv -> {
+                if (context is MainActivity){
+                    ///< 判断当前屏幕方向
+                    if ((context as MainActivity).getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+                        ///< 切换竖屏
+                        (context as MainActivity).setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                    } else {
+                        ///< 切换横屏
+                        (context as MainActivity).setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                    }
+                }
             }
         }
     }

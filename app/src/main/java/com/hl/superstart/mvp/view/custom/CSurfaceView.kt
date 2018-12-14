@@ -321,4 +321,11 @@ class CSurfaceView(context: Context, attributeSet: AttributeSet?, defaultStyle: 
     public fun setMode(mode: DISPLAY_TYPE) {
         disType = mode
     }
+
+    /**
+     * 获取模式
+     */
+    public fun getMode() : DISPLAY_TYPE? {
+        return disType
+    }
 }

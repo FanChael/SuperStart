@@ -12,6 +12,7 @@
         android:layout_height="match_parent" />
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/fh_bottomCenter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -31,8 +32,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/mode"
+            android:src="@drawable/bounce"
             app:layout_constraintStart_toEndOf="@id/fh_textIv" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/fh_bottomMessageEditor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/fh_bottomCenter">
+
+        <EditText
+            android:id="@+id/fh_btmMessageEt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            android:background="@drawable/ss_editor_stroke_shape"
+            android:lines="1"
+            android:textCursorDrawable="@drawable/ss_edit_cursor_color"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@id/fh_btmMessageOkBtn"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/fh_btmMessageOkBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ss_gray_stroke_btn"
+            android:text="@string/app_ok"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
     <ImageView
@@ -49,9 +82,19 @@
         android:id="@+id/fh_doubleIv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
         android:src="@drawable/doublec"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/fh_oretationIv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/oreatation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>
