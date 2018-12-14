@@ -31,6 +31,13 @@ class LongLightUtils {
         }
 
         /**
+         * 清除屏幕常量
+         */
+        fun dontkeepScreenLongLight(activity: Activity) {
+            activity.window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
+
+        /**
          * 打开休眠锁只能保持手机不休眠
          * @param context
          */
