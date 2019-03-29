@@ -1,4 +1,4 @@
-package com.hl.superstart.mvp.view.Fragment
+package com.hl.superstart.mvp.view.fragment
 
 import android.content.Context
 import android.content.pm.ActivityInfo
@@ -102,6 +102,24 @@ class HomeFragment : Fragment(), View.OnClickListener {
                     }
                 }
             }
+        }
+    }
+
+    fun HideOrShow(bShow: Boolean?) {
+        if (!bShow!!){
+            fh_textIv.visibility = View.INVISIBLE
+            fh_modelIv.visibility = View.INVISIBLE
+            fh_bottomMessageEditor.visibility = View.INVISIBLE
+            fh_zoomIv.visibility = View.INVISIBLE
+            fh_doubleIv.visibility = View.INVISIBLE
+            fh_oretationIv.visibility = View.INVISIBLE
+        }
+        else{
+            fh_textIv.visibility = View.VISIBLE
+            fh_modelIv.visibility = View.VISIBLE
+            fh_zoomIv.visibility = View.VISIBLE
+            fh_doubleIv.visibility = View.VISIBLE
+            fh_oretationIv.visibility = View.VISIBLE
         }
     }
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mvp.view.Fragment.HomeFragment">
+    tools:context=".mvp.view.fragment.HomeFragment">
 
     <com.hl.superstart.mvp.view.custom.CSurfaceView
         android:id="@+id/fh_startShowSv"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:src="@drawable/bounce"
-            app:layout_constraintStart_toEndOf="@id/fh_textIv" />
+            app:layout_constraintStart_toEndOf="@+id/fh_textIv" />
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
@@ -44,7 +44,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@id/fh_bottomCenter">
+        app:layout_constraintBottom_toTopOf="@+id/fh_bottomCenter">
 
         <EditText
             android:id="@+id/fh_btmMessageEt"
@@ -55,7 +55,7 @@
             android:lines="1"
             android:textCursorDrawable="@drawable/ss_edit_cursor_color"
             android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@id/fh_btmMessageOkBtn"
+            app:layout_constraintEnd_toStartOf="@+id/fh_btmMessageOkBtn"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button

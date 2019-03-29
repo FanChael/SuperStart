@@ -1,4 +1,4 @@
-package com.hl.superstart.mvp.view.Fragment;
+package com.hl.superstart.mvp.view.fragment;
 
 import android.net.Uri;
 

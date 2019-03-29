@@ -122,7 +122,8 @@ class CSurfaceView(context: Context, attributeSet: AttributeSet?, defaultStyle: 
         mHeight = dm.heightPixels
 
         startX = 0f
-        startY = (mHeight!! / 2 - (rect.bottom - rect.top) / 2).toFloat()
+        //startY = (mHeight!! / 2 - (rect.bottom - rect.top) / 2).toFloat()
+        startY = (mHeight!! / 2).toFloat()
     }
 
     /**
@@ -191,7 +192,7 @@ class CSurfaceView(context: Context, attributeSet: AttributeSet?, defaultStyle: 
                  */
                 oldDist = spacing(event)
                 if (oldDist!! > 10f) {
-                    handleType = HANDLE_TYPE.ZOOM;
+                    handleType = HANDLE_TYPE.ZOOM
                 }
             }
             MotionEvent.ACTION_MOVE -> {
@@ -211,7 +212,7 @@ class CSurfaceView(context: Context, attributeSet: AttributeSet?, defaultStyle: 
                 }
             }
             MotionEvent.ACTION_POINTER_UP -> {
-                handleType = HANDLE_TYPE.NONE;
+                handleType = HANDLE_TYPE.NONE
             }
             MotionEvent.ACTION_UP -> {
             }
@@ -291,7 +292,9 @@ class CSurfaceView(context: Context, attributeSet: AttributeSet?, defaultStyle: 
         mTPaint!!.getTextBounds(msg, 0, msg.length, rect);
 
         startX = 0f
-        startY = (mHeight!! / 2 - (rect.bottom - rect.top) / 2).toFloat()
+        //startY = (mHeight!! / 2 - (rect.bottom - rect.top) / 2).toFloat()
+        ///< 解决缩放不居中问题
+        startY = (mHeight!! / 2).toFloat()
     }
 
     /**
@@ -299,10 +302,12 @@ class CSurfaceView(context: Context, attributeSet: AttributeSet?, defaultStyle: 
      */
     public fun setSize(size: Float) {
         mTPaint!!.setTextSize(size)
-        mTPaint!!.getTextBounds(message, 0, message!!.length, rect);
+        mTPaint!!.getTextBounds(message, 0, message!!.length, rect)
 
         startX = 0f
-        startY = (mHeight!! / 2 - (rect.bottom - rect.top) / 2).toFloat()
+        //startY = (mHeight!! / 2 - (rect.bottom - rect.top) / 2).toFloat()
+        ///< 解决缩放不居中问题
+        startY = (mHeight!! / 2).toFloat()
     }
 
     /**
