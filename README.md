@@ -11,7 +11,11 @@ Electronic subtitle display - 电子字幕展示-接机、演唱会、见面、�
 3.双击暂停滚动<br>
 4.双指缩放文本大小<br>
 5.横屏动态控制+屏幕常亮处理<br>
-6.横屏全屏，竖屏非全屏<br>
+6.横屏全屏，竖屏非全屏<br>  
+
+# V1.1
+1.修复缩放位置不居中问题<br>
+2.摇一摇隐藏功能按钮<br>
 
 # 预览
 <img src="https://github.com/FanChael/SuperStart/blob/master/doc/pic/20181210164048.png" alt="竖屏显示"/>
