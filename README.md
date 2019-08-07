@@ -22,3 +22,6 @@ Electronic subtitle display - 电子字幕展示-接机、演唱会、见面、�
 <img src="https://github.com/FanChael/SuperStart/blob/master/doc/pic/20181210164117.png" alt="横屏显示"/>
 <img src="https://github.com/FanChael/SuperStart/blob/master/doc/pic/20181214111153.png" alt="竖屏显示"/>
 <img src="https://github.com/FanChael/SuperStart/blob/master/doc/pic/20181214111216.png" alt="横屏显示"/>
+
+
+<img src="https://github.com/FanChael/SuperStart/blob/master/doc/pic/temp_qrcode_share_574181465.png" alt="横屏显示"/>
